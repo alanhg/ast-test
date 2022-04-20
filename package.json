@@ -1,0 +1,22 @@
+{
+  "name": "ast-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "js-test.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alanhg/ast-test.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alanhg/ast-test/issues"
+  },
+  "homepage": "https://github.com/alanhg/ast-test#readme",
+  "dependencies": {
+    "esprima": "^4.0.1"
+  }
+}
