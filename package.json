@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/alanhg/ast-test#readme",
   "dependencies": {
+    "@babel/parser": "^7.17.9",
     "esprima": "^4.0.1"
   }
 }
