@@ -4,7 +4,7 @@ const generate = require('@babel/generator').default;
 
 const fs = require('fs');
 
-const code = fs.readFileSync(`${__dirname}/Book.tsx`, {encoding: 'utf-8'});
+const code = fs.readFileSync(`${__dirname}/Book.jsx`, {encoding: 'utf-8'});
 const ast = parser.parse(code, {sourceType: 'module', plugins: ['jsx', 'typescript']});
 
 const modifyValue = (value, componentNode) => value + componentNode.value.name;
@@ -36,5 +36,5 @@ traverse(ast, {
 });
 
 
-fs.writeFileSync(`${__dirname}/Book-modifier.tsx`, generate(ast).code, {encoding: 'utf-8'});
+fs.writeFileSync(`${__dirname}/Book-modifier.jsx`, generate(ast).code, {encoding: 'utf-8'});
 
