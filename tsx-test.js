@@ -4,7 +4,7 @@ const generate = require('@babel/generator').default;
 
 const fs = require('fs');
 
-const code = fs.readFileSync(`${__dirname}/Book.jsx`, {encoding: 'utf-8'});
+const code = fs.readFileSync(`${__dirname}/Book.tsx`, {encoding: 'utf-8'});
 const ast = parser.parse(code, {sourceType: 'module', plugins: ['jsx', 'typescript']});
 
 const modifyValue = (value, componentNode) => value + componentNode.value.name;
@@ -16,7 +16,7 @@ const modifyValue = (value, componentNode) => value + componentNode.value.name;
 traverse(ast, {
   enter(path) {
     if (path.parentPath && path.parentPath.type === 'ExportDefaultDeclaration') {
-      const [titleNode, componentNode] = path.node.properties.reduce((res, item) => {
+      const [titleNode, componentNode] = (path.node.properties || path.node.expression.properties).reduce((res, item) => {
         if (item.key.type === 'Identifier' && item.key.name === 'title') {
           res[0] = item;
         } else if (item.key.type === 'Identifier' && item.key.name === 'component') {
@@ -36,5 +36,5 @@ traverse(ast, {
 });
 
 
-fs.writeFileSync(`${__dirname}/Book-modifier.jsx`, generate(ast).code, {encoding: 'utf-8'});
+fs.writeFileSync(`${__dirname}/Book-modifier.tsx`, generate(ast).code, {encoding: 'utf-8'});
 
