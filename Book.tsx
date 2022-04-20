@@ -1,5 +1,9 @@
+const hello = 'llo';
 export default {
-  title: 'hello',
+  /**
+   * 字符串，模版字符串，函数
+   */
+  title: `he`,
   component: Book,
 };
 
