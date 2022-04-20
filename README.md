@@ -1,2 +1,2 @@
 # 说明
-- esprima仅支持JS
+- esprima仅支持JS/JSX
